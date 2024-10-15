@@ -1,0 +1,425 @@
+@layer components {
+	.loading-spinner-posts {
+		@apply h-full w-full;
+
+		path {
+			@apply stroke-blue-500;
+		}
+	}
+
+	.loading-spinner-brand {
+		@apply h-full w-full;
+
+		path {
+			@apply stroke-brand-100;
+		}
+	}
+
+	.loading-spinner-button {
+		@apply h-full w-full;
+
+		path {
+			@apply stroke-white;
+		}
+	}
+
+	.modal-pop-up {
+		.modal-close {
+			@apply outline-offset-4;
+			&:hover,
+			&:focus {
+				@apply text-red-500;
+			}
+		}
+	}
+
+	.auth-button {
+		@apply border-[2px] border-solid px-[4px] rounded-full py-1 w-[80px] font-bold bg-transparent text-sm sm:text-base sm:w-[96px] outline-1;
+	}
+
+	.auth-modal-link {
+		@apply cursor-pointer text-blue-500 hover:text-blue-800 hover:underline focus:text-blue-800 focus:underline outline-1 focus-within:outline-dotted;
+	}
+
+	.auth-input {
+		@apply rounded-full py-2 px-4 bg-gray-100 w-full min-w-0 border-[1px] border-transparent hover:border-gray-300 focus:border-blue-500 outline-none;
+	}
+
+	.auth-button-modal {
+		@apply border-2 border-blue-500 text-white py-2 px-4 rounded-full font-bold bg-blue-500 text-base outline-1;
+	}
+
+	.auth-modal-loading-spinner-container {
+		@apply w-full h-max flex flex-col items-center justify-center my-1;
+	}
+
+	.auth-modal-loading-spinner {
+		@apply aspect-square h-[32px] w-[32px] animate-spin [&>path]:stroke-blue-500;
+	}
+
+	.o-auth-buttons {
+		@apply flex flex-row items-center w-full min-w-0 border-[1px] rounded-full border-gray-300 outline-1 hover:border-blue-500 hover:bg-blue-500 hover:bg-opacity-[3%] focus:border-blue-500 focus:bg-blue-500 focus:bg-opacity-[3%] outline-none;
+
+		.o-auth-button-img {
+			@apply aspect-square h-[20px] w-[20px] m-3 pointer-events-none;
+		}
+
+		.o-auth-button-label {
+			@apply flex-1 font-semibold text-sm text-gray-600 pointer-events-none;
+		}
+	}
+
+	.right-content-icons {
+		.button {
+			@apply aspect-square h-[36px] w-[36px] p-[6px] duration-100 hover:bg-opacity-10 hover:rounded-lg hover:bg-gray-600 focus:bg-opacity-10 focus:rounded-lg focus:bg-gray-700 [&:hover>.icon]:fill-gray-800 [&:focus>.icon]:fill-gray-800 outline-none;
+
+			.icon {
+				@apply aspect-square h-full w-full fill-gray-600;
+			}
+		}
+	}
+
+	.nav-bar-dropdown {
+		& > summary {
+			.caret {
+				@apply aspect-square h-full max-h-[20px];
+			}
+		}
+
+		&:hover,
+		&:focus-within {
+			& > summary {
+				@apply border-gray-400;
+			}
+		}
+
+		&[open] {
+			& > summary {
+				@apply border-gray-400;
+
+				.caret {
+					@apply fill-gray-600 rotate-180;
+				}
+			}
+		}
+	}
+
+	.dropdown-user {
+		.label {
+			* {
+				@apply w-full;
+			}
+
+			h2 {
+				@apply text-xs font-semibold;
+			}
+
+			p {
+				@apply text-xs text-gray-500 font-semibold;
+			}
+		}
+
+		&:hover,
+		&:focus-within {
+			.caret {
+				@apply fill-gray-600;
+			}
+		}
+	}
+
+	.dropdown-user-list {
+		li {
+			@apply w-full;
+
+			button {
+				@apply flex flex-row items-center w-full gap-x-4 px-4 py-2 cursor-pointer;
+			}
+
+			button * {
+				@apply pointer-events-none;
+			}
+
+			.icon {
+				@apply aspect-square w-full h-[28px] max-w-[28px] fill-gray-600;
+			}
+
+			.label {
+				@apply font-semibold flex-1 text-left text-sm;
+			}
+
+			&:hover,
+			&:focus-within {
+				button {
+					@apply bg-gray-600 bg-opacity-10;
+				}
+
+				.user-logout {
+					@apply bg-red-500 bg-opacity-10;
+
+					.icon {
+						@apply fill-red-500;
+					}
+
+					.label {
+						@apply text-red-500;
+					}
+				}
+			}
+		}
+	}
+
+	.directory-container {
+		summary {
+			@apply list-none;
+		}
+
+		.directory-header {
+			.icon {
+				@apply aspect-square h-[20px] w-[20px] fill-gray-400;
+			}
+
+			.label {
+				@apply truncate;
+			}
+
+			&:hover,
+			&:focus-within {
+				@apply border-gray-200;
+
+				.icon {
+					@apply fill-gray-600;
+				}
+
+				.caret {
+					@apply fill-gray-600;
+				}
+			}
+		}
+
+		.directory-content {
+			@apply flex flex-col gap-y-2;
+
+			summary {
+				@apply px-4 py-1 text-slate-400 flex flex-row gap-x-1;
+
+				.caret {
+					@apply duration-100;
+				}
+
+				.label {
+					@apply uppercase text-xs font-semibold flex-1;
+				}
+			}
+
+			ul {
+				li {
+					.item,
+					& > button {
+						@apply px-6 py-2 w-full flex flex-row items-center gap-x-3;
+
+						.icon {
+							@apply aspect-square h-[20px] w-[20px] fill-gray-600;
+						}
+
+						.label {
+							@apply truncate text-sm text-gray-700;
+						}
+					}
+
+					&:hover {
+						& > .item,
+						& > button {
+							@apply bg-gray-500 bg-opacity-10;
+						}
+					}
+				}
+			}
+
+			details {
+				&[open] {
+					summary {
+						.caret {
+							@apply rotate-90;
+						}
+					}
+				}
+			}
+		}
+
+		&[open] {
+			& > summary {
+				@apply border-gray-200;
+
+				.icon {
+					@apply fill-gray-600;
+				}
+
+				.caret {
+					@apply fill-gray-600;
+				}
+			}
+		}
+	}
+
+	.create-community-alert {
+		&::after {
+			content: 'Names cannot have spaces (e.g., "r/bookclub" not "r/book club"), must be between 3-21 characters, and underscores ("_") are the only special characters allowed. Avoid using solely trademarked names (e.g., "r/FansOfAcme" not "r/Acme").';
+			@apply absolute hidden top-[125%] right-0 w-[180px] sm:right-[50%] sm:translate-x-[50%] h-max bg-gray-800 text-center text-xs text-white p-2 rounded-md;
+		}
+
+		&:hover,
+		&:focus-within {
+			.icon {
+				@apply text-gray-900;
+			}
+
+			&::after {
+				@apply block;
+			}
+		}
+	}
+
+	.create-community-radios {
+		@apply flex flex-col gap-y-2 mt-2 w-full;
+		> div {
+			@apply flex flex-row gap-x-2 items-start w-full;
+
+			> input {
+				@apply w-[20px] h-[20px];
+			}
+
+			> label {
+				@apply flex flex-row gap-x-2 items-start w-full;
+
+				> .icon {
+					@apply aspect-square mt-[2px] w-[16px] h-[16px] mx-1 text-gray-500;
+				}
+
+				> p {
+					@apply font-semibold text-sm;
+				}
+
+				> small {
+					@apply text-xs text-gray-500 flex-1 pt-1;
+				}
+			}
+		}
+	}
+
+	.modal-loading-box {
+		@apply absolute h-full w-full top-0 left-0 grid place-items-center bg-[#fffa] rounded-b-2xl;
+
+		.loading-content {
+			@apply w-full flex flex-col items-center gap-y-2 px-2;
+
+			.loading-container {
+				@apply h-[48px] w-[48px];
+
+				.loading {
+					@apply h-full w-full animate-spin;
+
+					path {
+						@apply stroke-blue-500;
+					}
+				}
+			}
+
+			.label {
+				@apply font-bold text-blue-500 relative text-center text-sm animate-pulse;
+			}
+		}
+	}
+
+	.page-button {
+		@apply border-2 text-sm border-solid border-blue-500 px-8 py-2 rounded-full font-bold bg-blue-500 text-white w-full max-w-[210px] xs:w-max outline-offset-[4px];
+	}
+
+	.bordered-box-1 {
+		@apply border-[1px] border-solid border-gray-300;
+	}
+
+	.tab-items-container {
+		.tab-item {
+			@apply flex flex-row p-4 items-center justify-center gap-x-2 flex-auto text-gray-400 border-b-[1px] border-l-[1px] border-solid border-gray-300;
+
+			.tab-item-icon-container {
+				@apply aspect-square h-[20px] w-[20px];
+
+				svg {
+					@apply h-full w-full;
+				}
+			}
+
+			.tab-item-label {
+				@apply font-bold text-sm;
+			}
+
+			&:first-child {
+				@apply border-l-0;
+			}
+
+			&:hover,
+			&:focus {
+				@apply bg-blue-500 bg-opacity-5;
+			}
+		}
+
+		.active {
+			@apply border-b-blue-500 text-blue-500 shadow-tab-item-active shadow-blue-500 bg-blue-500 bg-opacity-5;
+		}
+	}
+
+	.post-others-menu {
+		.item {
+			.button {
+				@apply p-2 flex flex-row items-center gap-x-2 text-gray-500 w-full;
+				.icon {
+					@apply h-5 w-5;
+				}
+
+				.label {
+					@apply font-bold text-sm;
+				}
+
+				&:hover,
+				&:focus {
+					@apply bg-blue-500 bg-opacity-5 text-gray-800;
+				}
+			}
+
+			.delete {
+				&:hover,
+				&:focus {
+					@apply bg-red-500 bg-opacity-5 text-red-500;
+				}
+			}
+		}
+	}
+
+	.comment-others-menu {
+		.item {
+			.button {
+				@apply p-2 flex flex-row items-center gap-x-2 text-gray-500 w-full;
+				.icon {
+					@apply h-5 w-5;
+				}
+
+				.label {
+					@apply font-bold text-sm;
+				}
+
+				&:hover,
+				&:focus {
+					@apply bg-blue-500 bg-opacity-5 text-gray-800;
+				}
+			}
+
+			.delete {
+				&:hover,
+				&:focus {
+					@apply bg-red-500 bg-opacity-5 text-red-500;
+				}
+			}
+		}
+	}
+}
